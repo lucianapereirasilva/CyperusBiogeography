@@ -31,7 +31,7 @@ tipranges
 
 max_range_size = 7
 
-numstates_from_numareas(numareas=7, maxareas=7, include_null_range=TRUE)
+#numstates_from_numareas(numareas=7, maxareas=7, include_null_range=TRUE)
 #numstates_from_numareas(numareas=8, maxareas=8, include_null_range=FALSE)
 
 #######################################################
@@ -46,15 +46,6 @@ BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a di
 BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
 # also search script on "include_null_range" for other places to change
 
-## Set up a time-stratified analysis:
-# Uncomment files you wish to use in time-stratified analyses:
-#BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-#BioGeoBEARS_run_object$dispersal_multipliers_fn = "manual_dispersal_multipliers.txt"
-#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
-#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
-#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
-# See notes on the distances model on PhyloWiki's BioGeoBEARS updates page.
-
 # Speed options and multicore processing if desired
 BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
 BioGeoBEARS_run_object$use_optimx = "GenSA"      # if FALSE, use optim() instead of optimx()
@@ -65,11 +56,6 @@ BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathol
 # This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
 # (It also runs some checks on these inputs for certain errors.)
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
-
-# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
-#BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
-# The stratified tree is described in this table:
-#BioGeoBEARS_run_object$master_table
 
 # Good default settings to get ancestral states
 BioGeoBEARS_run_object$return_condlikes_table = TRUE
@@ -119,14 +105,6 @@ BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a di
 BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
 # also search script on "include_null_range" for other places to change
 
-# Set up a time-stratified analysis:
-#BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-#BioGeoBEARS_run_object$dispersal_multipliers_fn = "manual_dispersal_multipliers.txt"
-#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
-#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
-#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
-# See notes on the distances model on PhyloWiki's BioGeoBEARS updates page.
-
 # Speed options and multicore processing if desired
 BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
 BioGeoBEARS_run_object$use_optimx = "GenSA"     # if FALSE, use optim() instead of optimx()
@@ -136,11 +114,6 @@ BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathol
 # This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
 # (It also runs some checks on these inputs for certain errors.)
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
-
-# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
-#BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
-# The stratified tree is described in this table:
-#BioGeoBEARS_run_object$master_table
 
 # Good default settings to get ancestral states
 BioGeoBEARS_run_object$return_condlikes_table = TRUE
@@ -196,7 +169,7 @@ resDECj = res
 # PDF plots
 #######################################################
 pdffn = "Cyperus_DEC_vs_DEC+J_M0_unconstrained_v1.pdf"
-pdf(pdffn, width=10, height=20)
+pdf(pdffn, width=15, height=60)
 
 ## Plot ancestral states - DEC
 analysis_titletxt ="BioGeoBEARS DEC on Cyperus M0_unconstrained"
@@ -237,14 +210,6 @@ BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a di
 BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
 # also search script on "include_null_range" for other places to change
 
-# Set up a time-stratified analysis:
-#BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-#BioGeoBEARS_run_object$dispersal_multipliers_fn = "manual_dispersal_multipliers.txt"
-#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
-#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
-#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
-# See notes on the distances model on PhyloWiki's BioGeoBEARS updates page.
-
 # Speed options and multicore processing if desired
 BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
 BioGeoBEARS_run_object$use_optimx = "GenSA"     # if FALSE, use optim() instead of optimx()
@@ -254,11 +219,6 @@ BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathol
 # This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
 # (It also runs some checks on these inputs for certain errors.)
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
-
-# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
-#BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
-# The stratified tree is described in this table:
-#BioGeoBEARS_run_object$master_table
 
 # Good default settings to get ancestral states
 BioGeoBEARS_run_object$return_condlikes_table = TRUE
@@ -280,11 +240,6 @@ BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["v","type"] = "ysv*
 BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","type"] = "fixed"
 BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","init"] = 0.5
 BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","est"] = 0.5
-
-# No jump dispersal/founder-event speciation
-# BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","type"] = "free"
-# BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","init"] = 0.01
-# BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","est"] = 0.01
 
 check_BioGeoBEARS_run(BioGeoBEARS_run_object)
 
@@ -314,14 +269,6 @@ BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a di
 BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
 # also search script on "include_null_range" for other places to change
 
-# Set up a time-stratified analysis:
-#BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-#BioGeoBEARS_run_object$dispersal_multipliers_fn = "manual_dispersal_multipliers.txt"
-#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
-#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
-#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
-# See notes on the distances model on PhyloWiki's BioGeoBEARS updates page.
-
 # Speed options and multicore processing if desired
 BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
 BioGeoBEARS_run_object$use_optimx = "GenSA"     # if FALSE, use optim() instead of optimx()
@@ -331,11 +278,6 @@ BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathol
 # This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
 # (It also runs some checks on these inputs for certain errors.)
 BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
-
-# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
-#BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
-# The stratified tree is described in this table:
-#BioGeoBEARS_run_object$master_table
 
 # Good default settings to get ancestral states
 BioGeoBEARS_run_object$return_condlikes_table = TRUE
@@ -395,7 +337,7 @@ if (runslow)
   # Loads to "res"
   load(resfn)
   resDIVALIKEj = res
-}
+}  
 
 ######################################################
 #Plotting the results
@@ -409,7 +351,7 @@ resDIVALIKEj = res
 # PDF plots
 #######################################################
 pdffn = "Cyperus_DIVALIKE_vs_DIVALIKE+J_M0_unconstrained_v1.pdf"
-pdf(pdffn, width=10, height=20)
+pdf(pdffn, width=15, height=60)
 
 ### Plot ancestral states - DIVALIKE
 analysis_titletxt ="BioGeoBEARS DIVALIKE on Cyperus M0_unconstrained"
@@ -558,6 +500,551 @@ write.table(conditional_format_table(restable_AIC_rellike), file="restable_AIC_r
 write.table(conditional_format_table(restable_AICc_rellike), file="restable_AICc_rellike_formatted.txt", quote=FALSE, sep="\t")
 
 
+#-----------------------------------------------------
+# Run constrained analyses with dispersal multipliers 
+# allowing the dispersal matrix to be modified by extra
+# parameter -w
+#-----------------------------------------------------
+
+#######################################################
+# Run DEC
+#######################################################
+BioGeoBEARS_run_object = define_BioGeoBEARS_run()
+BioGeoBEARS_run_object$trfn = trfn
+BioGeoBEARS_run_object$geogfn = geogfn
+BioGeoBEARS_run_object$max_range_size = max_range_size
+
+BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a direct ancestor (no speciation event)
+BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
+
+## Set up a time-stratified analysis:
+# Uncomment files you wish to use in time-stratified analyses:
+BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
+#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
+#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
+
+# Speed options and multicore processing if desired
+BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
+BioGeoBEARS_run_object$use_optimx = "GenSA"      # if FALSE, use optim() instead of optimx()
+BioGeoBEARS_run_object$num_cores_to_use = 1
+
+BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathology & isn't much faster at this scale
+
+# This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
+# (It also runs some checks on these inputs for certain errors.)
+BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
+BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
+# The stratified tree is described in this table:
+BioGeoBEARS_run_object$master_table
+
+# Good default settings to get ancestral states
+BioGeoBEARS_run_object$return_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_TTL_loglike_from_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_ancprobs = TRUE    # get ancestral states from optim run
+
+# Set up DEC model
+# (nothing to do; defaults)
+
+# Look at the BioGeoBEARS_run_object; it's just a list of settings etc.
+BioGeoBEARS_run_object
+
+# This contains the model object
+BioGeoBEARS_run_object$BioGeoBEARS_model_object
+
+# This table contains the parameters of the model 
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table
+
+# Add w as a free parameter
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","type"] = "free"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","init"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","est"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","min"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","max"] = 3
+
+# Run this to check inputs. Read the error messages if you get them!
+check_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+# For a slow analysis, run once, then set runslow=FALSE to just load the saved result.
+runslow = TRUE
+resfn = "Cyperus_DEC_M0_constrained_v1.Rdata"
+if (runslow)
+{
+  res = bears_optim_run(BioGeoBEARS_run_object)
+  res 
+  
+  save(res, file=resfn)
+  resDECc = res
+} else {
+  # Loads to "res"
+  load(resfn)
+  resDECc = res
+}
+
+#######################################################
+# Run DEC+J
+#######################################################
+BioGeoBEARS_run_object = define_BioGeoBEARS_run()
+BioGeoBEARS_run_object$trfn = trfn
+BioGeoBEARS_run_object$geogfn = geogfn
+BioGeoBEARS_run_object$max_range_size = max_range_size
+BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a direct ancestor (no speciation event)
+BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
+
+# Set up a time-stratified analysis:
+BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
+#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
+#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
+
+# Speed options and multicore processing if desired
+BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
+BioGeoBEARS_run_object$use_optimx = "GenSA"     # if FALSE, use optim() instead of optimx()
+BioGeoBEARS_run_object$num_cores_to_use = 1
+BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathology & isn't much faster at this scale
+
+# This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
+# (It also runs some checks on these inputs for certain errors.)
+BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
+BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
+# The stratified tree is described in this table:
+BioGeoBEARS_run_object$master_table
+
+# Good default settings to get ancestral states
+BioGeoBEARS_run_object$return_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_TTL_loglike_from_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_ancprobs = TRUE    # get ancestral states from optim run
+
+# Set up DEC+J model
+# Get the ML parameter values from the 2-parameter nested model
+# (this will ensure that the 3-parameter model always does at least as good)
+dstart = resDECc$outputs@params_table["d","est"]
+estart = resDECc$outputs@params_table["e","est"]
+jstart = 0.0001
+
+# Input starting values for d, e
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["d","init"] = dstart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["d","est"] = dstart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["e","init"] = estart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["e","est"] = estart
+
+# Add j as a free parameter
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","type"] = "free"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","init"] = jstart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","est"] = jstart
+
+# Add w as a free parameter
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","type"] = "free"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","init"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","est"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","min"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","max"] = 3
+
+check_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+# For a slow analysis, run once, then set runslow=FALSE to just 
+# load the saved result.
+resfn = "Cyperus_DEC+J_M0_constrained_v1.Rdata"
+runslow = TRUE
+if (runslow)
+{
+  res = bears_optim_run(BioGeoBEARS_run_object)
+  res    
+  
+  save(res, file=resfn)   
+  
+  resDECjc = res
+} else {
+  # Loads to "res"
+  load(resfn)
+  resDECjc = res
+}
+######################################################
+#Plotting the results
+#####################################################
+load("Cyperus_DEC_M0_constrained_v1.Rdata")
+resDEC = res
+load("Cyperus_DEC+J_M0_constrained_v1.Rdata")
+resDECj = res
+
+#######################################################
+# PDF plots
+#######################################################
+pdffn = "Cyperus_DEC_vs_DEC+J_M0_constrained_v1.pdf"
+pdf(pdffn, width=15, height=50)
+
+## Plot ancestral states - DEC
+analysis_titletxt ="BioGeoBEARS DEC on Cyperus M0_constrained"
+
+# Setup
+results_object = resDEC
+scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
+
+# States
+res2 = plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="text", label.offset=0.6, tipcex=0.6, statecex=0.5, splitcex=0.5, titlecex=0.5, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+# Pie chart
+plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="pie", label.offset=0.6, tipcex=0.6, statecex=0.5, splitcex=0.5, titlecex=0.5, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+## Plot ancestral states - DECJ
+analysis_titletxt ="BioGeoBEARS DEC+J on Cyperus M0_constrained"
+
+# Setup
+results_object = resDECj
+scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
+
+# States
+res1 = plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="text", label.offset=0.6, tipcex=0.6, statecex=0.6, splitcex=0.6, titlecex=0.6, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+# Pie chart
+plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="pie", label.offset=0.6, tipcex=0.6, statecex=0.6, splitcex=0.6, titlecex=0.6, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+dev.off()  # Turn off PDF
+
+#######################################################
+# Run DIVALIKE
+#######################################################
+BioGeoBEARS_run_object = define_BioGeoBEARS_run()
+BioGeoBEARS_run_object$trfn = trfn
+BioGeoBEARS_run_object$geogfn = geogfn
+BioGeoBEARS_run_object$max_range_size = max_range_size
+BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a direct ancestor (no speciation event)
+BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
+# also search script on "include_null_range" for other places to change
+
+# Set up a time-stratified analysis:
+BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
+#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
+#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
+
+# Speed options and multicore processing if desired
+BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
+BioGeoBEARS_run_object$use_optimx = "GenSA"     # if FALSE, use optim() instead of optimx()
+BioGeoBEARS_run_object$num_cores_to_use = 1
+BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathology & isn't much faster at this scale
+
+# This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
+# (It also runs some checks on these inputs for certain errors.)
+BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
+BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
+# The stratified tree is described in this table:
+BioGeoBEARS_run_object$master_table
+
+# Good default settings to get ancestral states
+BioGeoBEARS_run_object$return_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_TTL_loglike_from_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_ancprobs = TRUE    # get ancestral states from optim run
+
+# Set up DIVALIKE model
+# Remove subset-sympatry
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["s","type"] = "fixed"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["s","init"] = 0.0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["s","est"] = 0.0
+
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["ysv","type"] = "2-j"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["ys","type"] = "ysv*1/2"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["y","type"] = "ysv*1/2"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["v","type"] = "ysv*1/2"
+
+# Allow classic, widespread vicariance; all events equiprobable
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","type"] = "fixed"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","init"] = 0.5
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","est"] = 0.5
+
+# Add w as a free parameter
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","type"] = "free"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","init"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","est"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","min"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","max"]  = 3
+
+check_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+runslow = TRUE
+resfn = "Cyperus_DIVALIKE_M0_constrained_v1.Rdata"
+if (runslow)
+{
+  res = bears_optim_run(BioGeoBEARS_run_object)
+  res    
+  
+  save(res, file=resfn)
+  resDIVALIKEc = res
+} else {
+  # Loads to "res"
+  load(resfn)
+  resDIVALIKEc = res
+}
+
+#######################################################
+# Run DIVALIKE+J
+#######################################################
+BioGeoBEARS_run_object = define_BioGeoBEARS_run()
+BioGeoBEARS_run_object$trfn = trfn
+BioGeoBEARS_run_object$geogfn = geogfn
+BioGeoBEARS_run_object$max_range_size = max_range_size
+BioGeoBEARS_run_object$min_branchlength = 0.000001    # Min to treat tip as a direct ancestor (no speciation event)
+BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC* model, DEC*+J, etc. (see Massana et al.)
+
+# Set up a time-stratified analysis:
+BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+#BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
+#BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
+#BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
+# See notes on the distances model on PhyloWiki's BioGeoBEARS updates page.
+
+# Speed options and multicore processing if desired
+BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
+BioGeoBEARS_run_object$use_optimx = "GenSA"     # if FALSE, use optim() instead of optimx()
+BioGeoBEARS_run_object$num_cores_to_use = 1
+BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathology & isn't much faster at this scale
+
+# This function loads the dispersal multiplier matrix etc. from the text files into the model object. Required for these to work!
+# (It also runs some checks on these inputs for certain errors.)
+BioGeoBEARS_run_object = readfiles_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+# Divide the tree up by timeperiods/strata (uncomment this for stratified analysis)
+BioGeoBEARS_run_object = section_the_tree(inputs=BioGeoBEARS_run_object, make_master_table=TRUE, plot_pieces=FALSE)
+# The stratified tree is described in this table:
+BioGeoBEARS_run_object$master_table
+
+# Good default settings to get ancestral states
+BioGeoBEARS_run_object$return_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_TTL_loglike_from_condlikes_table = TRUE
+BioGeoBEARS_run_object$calc_ancprobs = TRUE    # get ancestral states from optim run
+
+# Set up DIVALIKE+J model
+# Get the ML parameter values from the 2-parameter nested model
+# (this will ensure that the 3-parameter model always does at least as good)
+dstart = resDIVALIKEc$outputs@params_table["d","est"]
+estart = resDIVALIKEc$outputs@params_table["e","est"]
+jstart = 0.0001
+
+# Input starting values for d, e
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["d","init"] = dstart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["d","est"] = dstart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["e","init"] = estart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["e","est"] = estart
+
+# Remove subset-sympatry
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["s","type"] = "fixed"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["s","init"] = 0.0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["s","est"] = 0.0
+
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["ysv","type"] = "2-j"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["ys","type"] = "ysv*1/2"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["y","type"] = "ysv*1/2"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["v","type"] = "ysv*1/2"
+
+# Allow classic, widespread vicariance; all events equiprobable
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","type"] = "fixed"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","init"] = 0.5
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["mx01v","est"] = 0.5
+
+# Add jump dispersal/founder-event speciation
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","type"] = "free"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","init"] = jstart
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","est"] = jstart
+
+# Under DIVALIKE+J, the max of "j" should be 2, not 3 (as is default in DEC+J)
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","min"] = 0.00001
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["j","max"] = 1.99999
+
+# Add w as a free parameter
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","type"] = "free"
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","init"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","est"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","min"] = 0
+BioGeoBEARS_run_object$BioGeoBEARS_model_object@params_table["w","max"] = 3
+
+check_BioGeoBEARS_run(BioGeoBEARS_run_object)
+
+resfn = "Cyperus_DIVALIKE+J_M0_constrained_v1.Rdata"
+runslow = TRUE
+if (runslow)
+{
+  res = bears_optim_run(BioGeoBEARS_run_object)
+  res    
+  
+  save(res, file=resfn)
+  
+  resDIVALIKEjc = res
+} else {
+  # Loads to "res"
+  load(resfn)
+  resDIVALIKEjc = res
+}   
+
+######################################################
+#Plotting the results
+#####################################################
+load("Cyperus_DIVALIKE_M0_constrained_v1.Rdata")
+resDIVALIKE = res
+load("Cyperus_DIVALIKE+J_M0_constrained_v1.Rdata")
+resDIVALIKEj = res
+
+#######################################################
+# PDF plots
+#######################################################
+pdffn = "Cyperus_DIVALIKE_vs_DIVALIKE+J_M0_constrained_v1.pdf"
+pdf(pdffn, width=15, height=50)
+
+### Plot ancestral states - DIVALIKE
+analysis_titletxt ="BioGeoBEARS DIVALIKE on Cyperus M0_constrained"
+
+# Setup
+results_object = resDIVALIKEc
+scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
+
+# States
+res2 = plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="text", label.offset=0.6, tipcex=0.6, statecex=0.6, splitcex=0.6, titlecex=0.6, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+# Pie chart
+plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="pie", label.offset=0.6, tipcex=0.6, statecex=0.6, splitcex=0.6, titlecex=0.6, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+### Plot ancestral states - DIVALIKE+J
+analysis_titletxt ="Cyperus DIVALIKE+J on Cyperus M0_constrained"
+
+# Setup
+results_object = resDIVALIKEjc
+scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
+
+# States
+res1 = plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="text", label.offset=0.6, tipcex=0.6, statecex=0.6, splitcex=0.6, titlecex=0.6, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+# Pie chart
+plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"), plotwhat="pie", label.offset=0.6, tipcex=0.6, statecex=0.6, splitcex=0.6, titlecex=0.6, plotsplits=TRUE, cornercoords_loc=scriptdir, include_null_range=TRUE, tr=tr, tipranges=tipranges)
+
+dev.off()
+
+#########################################################################
+# Comparing all results
+#########################################################################
+# CALCULATE SUMMARY STATISTICS TO COMPARE
+# DEC, DEC+J, DIVALIKE, DIVALIKE+J
+#########################################################################
+
+# Set up empty tables to hold the statistical results
+restable = NULL
+teststable = NULL
+
+########## Statistics -- DEC vs. DEC+J #############
+
+# We have to extract the log-likelihood differently, depending on the 
+# version of optim/optimx
+LnL_2 = get_LnL_from_BioGeoBEARS_results_object(resDECc)
+LnL_1 = get_LnL_from_BioGeoBEARS_results_object(resDECjc)
+
+numparams1 = 3
+numparams2 = 2
+stats = AICstats_2models(LnL_1, LnL_2, numparams1, numparams2)
+stats
+
+# DEC, null model for Likelihood Ratio Test (LRT)
+res2 = extract_params_from_BioGeoBEARS_results_object(results_object=resDECc, returnwhat="table", addl_params=c("j"), paramsstr_digits=4)
+# DEC+J, alternative model for Likelihood Ratio Test (LRT)
+res1 = extract_params_from_BioGeoBEARS_results_object(results_object=resDECjc, returnwhat="table", addl_params=c("j"), paramsstr_digits=4)
+
+# The null hypothesis for a Likelihood Ratio Test (LRT) is that two models
+# confer the same likelihood on the data.
+
+rbind(res2, res1)
+tmp_tests = conditional_format_table(stats)
+
+restable = rbind(restable, res2, res1)
+teststable = rbind(teststable, tmp_tests)
+
+########### Statistics -- DIVALIKE vs. DIVALIKE+J ####################
+# We have to extract the log-likelihood differently, depending on the 
+# version of optim/optimx
+LnL_2 = get_LnL_from_BioGeoBEARS_results_object(resDIVALIKEc)
+LnL_1 = get_LnL_from_BioGeoBEARS_results_object(resDIVALIKEjc)
+
+numparams1 = 4
+numparams2 = 3
+stats = AICstats_2models(LnL_1, LnL_2, numparams1, numparams2)
+stats
+
+# DIVALIKE, null model for Likelihood Ratio Test (LRT)
+res2 = extract_params_from_BioGeoBEARS_results_object(results_object=resDIVALIKEc, returnwhat="table", addl_params=c("j"), paramsstr_digits=4)
+
+# DIVALIKE+J, alternative model for Likelihood Ratio Test (LRT)
+res1 = extract_params_from_BioGeoBEARS_results_object(results_object=resDIVALIKEjc, returnwhat="table", addl_params=c("j"), paramsstr_digits=4)
+
+rbind(res2, res1)
+conditional_format_table(stats)
+
+tmp_tests = conditional_format_table(stats)
+
+restable = rbind(restable, res2, res1)
+teststable = rbind(teststable, tmp_tests)
+
+#########################################################################
+# RESULTS: DEC, DEC+J, DIVALIKE, DIVALIKE+J
+#########################################################################
+teststable$alt = c("DEC+Jc", "DIVALIKE+Jc")
+teststable$null = c("DECc", "DIVALIKEc")
+row.names(restable) = c("DECc", "DEC+Jc", "DIVALIKEc", "DIVALIKE+Jc")
+
+# Look at the results!!
+restable
+teststable
+
+#######################################################
+# Save the results tables for later -- check for e.g.
+# convergence issues
+#######################################################
+
+# Loads to "restable"
+save(restable, file="restable_wc.Rdata")
+load(file="restable_wc.Rdata")
+
+# Loads to "teststable"
+save(teststable, file="teststable_wc.Rdata")
+load(file="teststable_wc.Rdata")
+
+# Also save to text files
+write.table(restable, file="restablewc.txt", quote=FALSE, sep="\t")
+write.table(unlist_df(teststable), file="teststable.txt", quote=FALSE, sep="\t")
+
+#######################################################
+# Model weights of all four models
+#######################################################
+restable2 = restable
+
+# With AICs:
+AICtable = calc_AIC_column(LnL_vals=restable$LnL, nparam_vals=restable$numparams)
+restable = cbind(restable, AICtable)
+restable_AIC_rellike = AkaikeWeights_on_summary_table(restable=restable, colname_to_use="AIC")
+restable_AIC_rellike
+
+# With AICcs -- factors in sample size
+samplesize = length(tr$tip.label)
+AICtable = calc_AICc_column(LnL_vals=restable$LnL, nparam_vals=restable$numparams, samplesize=samplesize)
+restable2 = cbind(restable2, AICtable)
+restable_AICc_rellike = AkaikeWeights_on_summary_table(restable=restable2, colname_to_use="AIC")
+restable_AICc_rellike
+free_params = row.names(resDECj$output@params_table[resDECj$output@params_table$type=="free",])
+names(restable_AICc_rellike) = c("LnL", "numparams", free_params, "AICc", "AICc_wt")
+
+# Also save to text files
+write.table(restable_AIC_rellike, file="restable_AIC_rellike.txt", quote=FALSE, sep="\t")
+write.table(restable_AICc_rellike, file="restable_AICc_rellike.txt", quote=FALSE, sep="\t")
+
+# Save with nice conditional formatting
+write.table(conditional_format_table(restable_AIC_rellike), file="restable_AIC_rellike_formattedc.txt", quote=FALSE, sep="\t")
+write.table(conditional_format_table(restable_AICc_rellike), file="restable_AICc_rellike_formattedc.txt", quote=FALSE, sep="\t")  
+  
 ######################################################
 # Bayesian stochastic mapping 
 ######################################################
@@ -575,7 +1062,7 @@ library(parallel)
 library(BioGeoBEARS)
 library(roxygen2)
 
-model_name = "DEC"
+model_name = "DIVALIKE"
 
 tr = read.tree("cyperus.tree")
 tr
@@ -593,7 +1080,7 @@ tipranges
 
 max_range_size = 7
 
-load("_Cyperus_DEC_M0_unconstrained_v1.Rdata")
+load("Cyperus_DIVALIKE_M0_unconstrained_v1.Rdata")
 res = res
 
 clado_events_tables = NULL
@@ -931,7 +1418,7 @@ ana_events_table = ana_events_tables[[1]]
 # Open a PDF
 ############################################
 pdffn = paste0(model_name, "Cyperus_single_stochastic_map_n1.pdf")
-pdf(file=pdffn, width=10, height=20)
+pdf(file=pdffn, width=15, height=60)
 
 # Convert the BSM into a modified res object
 master_table_cladogenetic_events = clado_events_tables[[1]]
@@ -1060,11 +1547,11 @@ library(phyloch)
 library(scales)
 
 data(gradstein04)
-resDEC -> biogeo
+resDIVALIKE -> biogeo
 
 tree = read.tree("cyperus.tree")
 
-areas.labels <- c("A", "B", "C", "D", "E", "F", "G")
+areas.labels <- c("A", "M", "E", "T", "O", "C", "N")
 area.cols=c("darkorange", "darkblue", "firebrick3","springgreen3", "gold", "mediumorchid3", "violetred1")
 
 read.table("matrix.txt", header = TRUE, row.names=1) -> range.states
@@ -1088,8 +1575,10 @@ Ntip(tree) -> n.tips
 Nnode(tree) -> n.nodes
 c((n.tips++1):(n.tips++n.nodes)) -> nodes
 MLstates[nodes] -> node.states
+#alpha("gray50", 0.5) -> colorRanges
 legend.col <- c(area.cols, colorRanges)
 legend.txt <- c(areas.labels)
+#legend.txt <- c(areas.labels, "Widespread")
 
 ### Pies 
 unlist(statenames) -> pie.colors
@@ -1109,7 +1598,7 @@ pie.data <- relprobs_matrix[nodes,]
 
 ### Plot
 pdffn = "Cyperus_DEC_v2.pdf"
-pdf(pdffn, width=12, height=20)
+pdf(pdffn, width=15, height=30)
 
 par(xpd = TRUE)
 
@@ -1131,7 +1620,7 @@ par(fg="black")
 
 axisGeo(GTS = gradstein04, unit = "epoch", col = c("grey80","white"), gridty=3, cex=1)
 
-legend(1, 130, legend=c("Southern & Tropical Africa","Madagascar","Eurasia & North Africa",
-                      "Southeast Asia & Australasia","India", "North America", "Neotropics"), 
+legend(1, 130, legend=c("Africa","Madagascar","Europe & Temperate Asia",
+                      "Tropical Asia","Oceania", "North America", "Neotropics"), 
                        border="white", fill=legend.col, cex=1.5)
 dev.off()

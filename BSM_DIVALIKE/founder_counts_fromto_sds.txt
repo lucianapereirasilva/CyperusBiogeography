@@ -1,4 +1,4 @@
-A	M	E	T	O	C	N
+	A	M	E	T	O	C	N
 A	0	0	0	0	0	0	0
 M	0	0	0	0	0	0	0
 E	0	0	0	0	0	0	0

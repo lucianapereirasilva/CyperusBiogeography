@@ -520,7 +520,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC*
 ## Set up a time-stratified analysis:
 # Uncomment files you wish to use in time-stratified analyses:
 BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers_4.txt"
 #BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
 #BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
 #BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
@@ -596,7 +596,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC*
 
 # Set up a time-stratified analysis:
 BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers_4.txt"
 #BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
 #BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
 #BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
@@ -666,12 +666,12 @@ if (runslow)
   resDECjc = res
 }
 ######################################################
-#Plotting the results
+#Plotting the results  
 #####################################################
 load("Cyperus_DEC_M0_constrained_v1.Rdata")
 resDEC = res
 load("Cyperus_DEC+J_M0_constrained_v1.Rdata")
-resDECj = res
+resDECj = res    
 
 #######################################################
 # PDF plots
@@ -683,7 +683,7 @@ pdf(pdffn, width=15, height=50)
 analysis_titletxt ="BioGeoBEARS DEC on Cyperus M0_constrained"
 
 # Setup
-results_object = resDEC
+results_object = resDECc
 scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
 
 # States
@@ -696,7 +696,7 @@ plot_BioGeoBEARS_results(results_object, analysis_titletxt, addl_params=list("j"
 analysis_titletxt ="BioGeoBEARS DEC+J on Cyperus M0_constrained"
 
 # Setup
-results_object = resDECj
+results_object = resDECjc
 scriptdir = np(system.file("extdata/a_scripts", package="BioGeoBEARS"))
 
 # States
@@ -720,7 +720,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC*
 
 # Set up a time-stratified analysis:
 BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers_3.txt"
 #BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
 #BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
 #BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
@@ -797,7 +797,7 @@ BioGeoBEARS_run_object$include_null_range = TRUE    # set to FALSE for e.g. DEC*
 
 # Set up a time-stratified analysis:
 BioGeoBEARS_run_object$timesfn = "timeperiods.txt"
-BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers.txt"
+BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers_3.txt"
 #BioGeoBEARS_run_object$areas_allowed_fn = "areas_allowed.txt"
 #BioGeoBEARS_run_object$areas_adjacency_fn = "areas_adjacency.txt"
 #BioGeoBEARS_run_object$distsfn = "distances_matrix.txt"
@@ -805,7 +805,7 @@ BioGeoBEARS_run_object$dispersal_multipliers_fn = "cyperus_dispersal_multipliers
 
 # Speed options and multicore processing if desired
 BioGeoBEARS_run_object$speedup = TRUE          # shorcuts to speed ML search; use FALSE if worried (e.g. >3 params)
-BioGeoBEARS_run_object$use_optimx = "GenSA"     # if FALSE, use optim() instead of optimx()
+BioGeoBEARS_run_object$use_optimx = "GenSA"    # if FALSE, use optim() instead of optimx()
 BioGeoBEARS_run_object$num_cores_to_use = 1
 BioGeoBEARS_run_object$force_sparse = FALSE    # force_sparse=TRUE causes pathology & isn't much faster at this scale
 

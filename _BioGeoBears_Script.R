@@ -15,7 +15,7 @@ library(cladoRcpp)
 
 #Load the tree and distribution
 tr = read.tree("cyperus.tree")
-tr = ladderize(tr)
+#tr = ladderize(tr)
 tr
 
 trfn = np("cyperus.tree")
@@ -498,6 +498,10 @@ write.table(restable_AICc_rellike, file="restable_AICc_rellike.txt", quote=FALSE
 # Save with nice conditional formatting
 write.table(conditional_format_table(restable_AIC_rellike), file="restable_AIC_rellike_formatted.txt", quote=FALSE, sep="\t")
 write.table(conditional_format_table(restable_AICc_rellike), file="restable_AICc_rellike_formatted.txt", quote=FALSE, sep="\t")
+
+
+## Save the best fit model
+saveRDS(dull.null_photosyn, "dull.null_photosyn.rds")
 
 
 #-----------------------------------------------------
